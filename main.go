@@ -5,6 +5,7 @@ import (
 )
 
 func main() {
-	genesis := blockdata.CreateGenesisBlock()
+	gensis := blockdata.CreateGenesisBlock()
+	gensis.PrintBlockInfo()
 
 }
