@@ -1,7 +1,10 @@
 package main
 
-import "fmt"
+import (
+	blockdata "github.com/AviTheBrown/Go_Blockchain/block_data"
+)
 
 func main() {
-	fmt.Printf("hello block")
+	genesis := blockdata.CreateGenesisBlock()
+
 }
