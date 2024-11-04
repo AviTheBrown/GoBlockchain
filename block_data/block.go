@@ -10,8 +10,9 @@ type Block struct {
 	Id         int
 	Time_stamp int64
 	// Data       string
-	PrevHash string
-	Hash     string
+	PrevHash     string
+	Hash         string
+	Magic_number int32
 }
 
 func (b Block) GetPrevBlockHash(prevBlock Block) string {
@@ -20,22 +21,24 @@ func (b Block) GetPrevBlockHash(prevBlock Block) string {
 }
 func CreateGenesisBlock() Block {
 	gBlock := Block{
-		Id:         1,
-		Time_stamp: time.Now().UTC().UnixNano(),
-		PrevHash:   "0",
+		Id:           1,
+		Time_stamp:   time.Now().UTC().UnixNano(),
+		Magic_number: hashing.GenerateMagicNum(),
+		PrevHash:     "0",
 	}
 
-	gBlock.Hash = hashing.GeneratHash(gBlock.Id, gBlock.Time_stamp, gBlock.PrevHash)
+	gBlock.Hash = hashing.GeneratHash(gBlock.Id, gBlock.Time_stamp, gBlock.Magic_number, gBlock.PrevHash)
 	return gBlock
 }
 
 func CreateNewBlock(prevBlock Block, id int) Block {
 	block := Block{
-		Id:         id,
-		Time_stamp: time.Now().UTC().UnixNano(),
-		PrevHash:   prevBlock.Hash,
+		Id:           id,
+		Time_stamp:   time.Now().UTC().UnixNano(),
+		Magic_number: hashing.GenerateMagicNum(),
+		PrevHash:     prevBlock.Hash,
 	}
-	block.Hash = hashing.GeneratHash(block.Id, block.Time_stamp, block.PrevHash)
+	block.Hash = hashing.GeneratHash(block.Id, block.Time_stamp, block.Magic_number, block.PrevHash)
 	return block
 }
 
