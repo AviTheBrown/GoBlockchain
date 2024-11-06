@@ -10,7 +10,7 @@ import (
 	mathRand "math/rand"
 )
 
-func generateMagicNum() int32 {
+func GenerateMagicNum() int32 {
 	max := big.NewInt(int64(mathRand.Int31()))
 	randNum, err := rand.Int(rand.Reader, max)
 	if err != nil {
@@ -22,9 +22,8 @@ func generateMagicNum() int32 {
 	return int32(randNum.Int64())
 }
 
-func GeneratHash(id int, timestamp int64, magicNumber int32, preHash string) string {
-	data := fmt.Sprintf("%d%d%s", id, timestamp, generateMagicNum(), preHash)
-	fmt.Println(data)
+func GeneratHash(id int, timestamp int64, magicNumber int32, preHash string, zeros string) string {
+	data := fmt.Sprintf("%d%d%d%s", id, timestamp, magicNumber, preHash)
 	hash := sha256.Sum256([]byte(data))
-	return hex.EncodeToString(hash[:])
+	return zeros + hex.EncodeToString(hash[:])
 }
