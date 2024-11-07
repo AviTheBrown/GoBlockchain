@@ -138,9 +138,9 @@ This is an educational project designed for learning blockchain concepts. It's a
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact 📫
-Your Name - [@yourusername](https://github.com/yourusername)
+Your Name - [@AviTheBrown](https://github.com/AviTheBrown)
 
-Project Link: [https://github.com/yourusername/go-blockchain](https://github.com/yourusername/go-blockchain)
+Project Link: [https://github.com/AviTheBrown/GoBlockchain](https://github.com/AviTheBrown/GoBlockchain)
 
 ---
 
