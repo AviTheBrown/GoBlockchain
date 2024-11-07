@@ -8,6 +8,7 @@ import (
 	"log"
 	"math/big"
 	mathRand "math/rand"
+	"strings"
 )
 
 func GenerateMagicNum() int32 {
@@ -26,4 +27,8 @@ func GeneratHash(id int, timestamp int64, magicNumber int32, preHash string, zer
 	data := fmt.Sprintf("%d%d%d%s", id, timestamp, magicNumber, preHash)
 	hash := sha256.Sum256([]byte(data))
 	return zeros + hex.EncodeToString(hash[:])
+}
+func ValidateHash(hash string, num2Zeros int) bool {
+	prefix := strings.Repeat("0", num2Zeros)
+	return strings.HasPrefix(hash, prefix)
 }

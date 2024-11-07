@@ -11,6 +11,7 @@ func askUser() int {
 	var number int
 	fmt.Println("Enter how many zeros the hash must start with: ")
 	fmt.Scan(&number)
+	fmt.Println()
 	return number
 }
 func createZero(count int) string {
